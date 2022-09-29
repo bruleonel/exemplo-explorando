@@ -1,0 +1,19 @@
+LendoArquivo arquivo = new LendoArquivo();
+
+var (sucesso, linhasArquivo, quantidadeLinhas) = arquivo.LerArquivo("Arquivos/arquivoleitura.txt");
+
+//Para descarte de informações usa-se o _
+//var (sucesso, linhasArquivo, _) = arquivo.LerArquivo("Arquivos/arquivoleitura.txt");
+
+if (sucesso)
+{
+    Console.WriteLine("Quantidade de linhas: " + quantidadeLinhas);
+    foreach (string linha in linhasArquivo)
+    {
+        Console.WriteLine(linha);
+    }
+}
+else
+{
+    Console.WriteLine("Não foi possível ler o arquivo! ");
+}

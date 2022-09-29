@@ -1,0 +1,7 @@
+
+Pessoa p1 = new Pessoa("Bruna", "Leonel");
+
+//chamando o Deconstrutor
+(string nome, string sobrenome) = p1;
+
+Console.WriteLine($"{nome} {sobrenome}");
