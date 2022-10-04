@@ -1,21 +1,5 @@
 ﻿using ExemploExplorando.Models;
 using System.Globalization;
+using Models;
 
-int numero = 20;
-bool ePar = false;
-
-//If não ternário
-if (numero % 2 == 0)
-{
-    Console.WriteLine($"O número  {numero} é par");
-}
-else
-{
-    Console.WriteLine($"O número  {numero} é ímpar");
-}
-
-//If Ternário
-
-ePar = numero % 2 == 0;
-
-Console.WriteLine($"O número  {numero} é " + (ePar ? "par" : "ímpar"));
+Venda v1 = new Venda(1, "MaterialDeEscritorio", 25.00M);
