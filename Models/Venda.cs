@@ -15,5 +15,8 @@ namespace ExemploExplorando.Models
         public string Produto { get; set; }
         public decimal Preço { get; set; }
         public DateTime DataVenda { get; set; }
+
+        //Propriedade pode ser nula
+        public decimal? Desconto { get; set; }
     }
 }

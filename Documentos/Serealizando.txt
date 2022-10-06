@@ -65,6 +65,7 @@ sing ExemploExplorando.Models;
 using System.Globalization;
 using Newtonsoft.Json;
 
+//Leitura do arquivo
 string conteudoArquivo = File.ReadAllText("Arquivos/vendas.json");
 
 List<Venda> listaVenda = JsonConvert.DeserializeObject<List<Venda>>(conteudoArquivo);

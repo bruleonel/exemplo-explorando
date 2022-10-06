@@ -1,0 +1,24 @@
+VERIFICAÇÃO:
+
+bool? desejaReceberEmmail = null;
+
+if (desejaReceberEmmail.HasValue)
+{
+    Console.WriteLine("O usuário optou por receber-e-mail. ");
+}
+else
+{
+    Console.WriteLine("O usuário não respondeu ou optou por não receber o e-mail");
+}
+
+PARA LEITURA DE NULOS
+
+string conteudoArquivo = File.ReadAllText("Arquivos/vendas.json");
+
+List<Venda> listaVenda = JsonConvert.DeserializeObject<List<Venda>>(conteudoArquivo);
+
+foreach (Venda venda in listaVenda)
+{
+    //Conferencia de valor
+    Console.WriteLine($"Id: {venda.Id}, Produto: {venda.Produto}" + $"Preço: {venda.Preço}, Data: {venda.DataVenda.ToString("dd/MM/yyy HH:mm")} " + $" {(venda.Desconto.HasValue? $"Desconte de: {venda.Desconto}" : "")}");
+}

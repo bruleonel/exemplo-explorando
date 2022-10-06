@@ -1,0 +1,116 @@
+CLASSE PESSOA
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace ExemploExplorando.Models
+{
+    public class Pessoa
+    {
+        public Pessoa()
+        {
+
+        }
+
+        public Pessoa(string nome, string sobrenome)
+        {
+            Nome = nome;
+            Sobrenome = sobrenome;
+        }
+
+        public void Deconstruct(out string nome, out string sobrenome)
+        {
+            nome = Nome;
+            sobrenome = Sobrenome;
+        }
+
+        private string _nome;
+        private int _idade;
+        public string Nome 
+        { 
+            get => _nome.ToUpper();
+            
+            set
+            {
+                if (value == "")
+                {
+                    throw new ArgumentException("O nome não pode ser vazio ");
+                }
+                _nome = value;
+            }
+        }
+        public string Sobrenome { get; set; }
+        public string NomeCompleto => $"{Nome} {Sobrenome}".ToUpper();
+        public int Idade 
+        {
+            get => _idade;
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("A idade não pode ser menor que zero");
+                }
+                _idade = value;
+            }
+            
+        }
+
+        public void Apresentar()
+        {
+            Console.WriteLine($"Nome: {NomeCompleto}, idade: {Idade}");
+        }
+    }
+}
+
+NO PROGRAMA
+
+Pessoa p1 = new Pessoa();
+p1.Nome = "Bruna";
+p1.Sobrenome = "Leonel";
+p1.Idade = 20;
+p1.Apresentar();
+
+//Modo sem construtor
+Pessoa p1 = new Pessoa();
+p1.Nome = "Bruna";
+p1.Sobrenome = "Leonel";
+
+//Modo com construtor
+Pessoa p = new Pessoa("Cristiane", "Leonel");
+
+Pessoa p2 = new Pessoa();
+p2.Nome = "Julia";
+p2.Sobrenome = "Leonel";
+
+Pessoa p3 = new Pessoa();
+p3.Nome = "Giulianno";
+p3.Sobrenome = "Leonel";
+
+Curso cursoDeIngles = new Curso();
+cursoDeIngles.Nome = "Inglês";
+cursoDeIngles.Alunos = new List<Pessoa>();
+
+cursoDeIngles.AdicionarAluno(p1);
+cursoDeIngles.AdicionarAluno(p2);
+cursoDeIngles.AdicionarAluno(p3);
+cursoDeIngles.AdicionarAluno(p);
+cursoDeIngles.ListarAluno();
+
+//Exceção Genérica
+
+try
+{
+    string[] linhas = File.ReadAllLines("Arquivos/arquivo_leitura.txt");
+
+    foreach (string linha in linhas)
+    {
+        Console.WriteLine(linha);
+    }
+}
+catch (Exception ex)
+{
+   Console.WriteLine($"Ocorreu uma exceção genérica. {ex.Message}"); 
+    throw;
+}

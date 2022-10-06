@@ -1,4 +1,19 @@
-﻿using System.Globalization;
+CLASSE
+
+namespace Models
+{
+    public static class IntExtensions
+    {
+        public static bool EhPar(this int numero)
+        {
+            return numero % 2 == 0;
+        }
+    }
+}
+
+PROGRAMA
+
+using System.Globalization;
 using Newtonsoft.Json;
 using ExemploExplorando.Models;
 using Models;

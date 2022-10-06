@@ -1,0 +1,11 @@
+dynamic dinamica = 4;
+
+Console.WriteLine($"Tipo da variável: {dinamica.GetType()}, valor: {dinamica}");
+
+dinamica = "texto";
+
+Console.WriteLine($"Tipo da variável: {dinamica.GetType()}, valor: {dinamica}");
+
+dinamica = true;
+
+Console.WriteLine($"Tipo da variável: {dinamica.GetType()}, valor: {dinamica}");
